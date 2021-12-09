@@ -1,0 +1,71 @@
+조우정강사
+웹4 제이쿼리
+
+제이쿼리 : css선택자를 사용하여 구동 - 자바스크립트의 라이브러리 파일
+
+[css 선택자]
+- 전체선택자 : 존재하는 모든 태그에 스타일을 지정
+* {margin:0; padding:0; box-sizing:border-box;}
+
+- 태그선택자
+a {text-decoration:none;}
+
+- id선택자
+#header {}
+  : 중복 사용이 불가능하다.
+  : 주로 태그에 이름을 지정할 때 사용
+
+- class선택자
+.list {}
+  : 중복 사용이 가능하다.
+  : 주로 스타일을 지정할 때 사용
+
+- 복합(다중)선택자
+  ul,ol,li {list-style:none;}
+  .list1, .list2 {}
+
+<ul class="list">
+    <li>
+        <ul>
+             <li>
+
+- 자식선택자 : list의 한수준 아래 li
+.list > li {}
+
+- 후손선택자 : list 안에있는 모든 li
+.list li {}
+
+<p></p>
+<div></div>
+<p></p>
+<p></p>
+<p></p>
+
+- 형제(동위)선택자
+div + p  : div 뒤에있는 p 하나
+div ~ p : div 뒤에있는 모든 p
+
+- 구조선택자
+***** css3선택자 : 하위브라우저(ie7,ie8 혹은 일부 ie10)에서 실행X
+
+li:first-child  : 첫번째 li
+li:last-child  : 마지막 li
+li:nth-child(3)  : 3번째 li
+li:nth-child(3n)  : 3의 배수
+li:nth-child(2n)  : 짝수(even)
+li:nth-child(2n-1)  : 홀수(odd)
+li:nth-last-child(3)  : 뒤에서 3번째 li
+
+:nth-child(n)
+:nth-of-type(n)
+
+<div class="box">
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+</div>
+
+.box p:nth-child(4) {}
+.box p:nth-of-type(2) {}
