@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery_filter1</title>
+</head>
+<style>
+    *{margin:0;padding:0;}
+    ul,ol,li {list-style:none;}
+    a{text-decoration:none; color:#333;}
+
+    .list{
+        width:500px;
+        margin:50px auto;
+    }
+
+    .list li{
+        float:left;
+        width:100px;
+    }
+
+    .list li a{
+        display:block;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        background-color:#ddd;
+    }
+    /*
+    .list li:first-child a {border-radius:15px 0 0 15px;}
+    .list li:last-child a {border-radius:0 15px 15px 0;}
+    .list li:nth-child(3) a{background-color: pink;}
+    .list li:nth-child(2n) a{background-color:red;} 
+    */
+</style>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function(){
+        // 첫 번째 a의 border-radius를 변경
+        // $('.list li:first a').css('border-radius','15px 0 0 15px');
+        $('.list li a:first').css('border-radius','15px 0 0 15px');
+
+        // 마지막 a의 border-radius를 변경
+        // $('.list li:last a').css('border-radius', '0 15px 15px 0')
+        $('.list li a:last').css('border-radius', '0 15px 15px 0');
+
+        // 3번째 a의 배경색을 pink로 변경
+        // ***** 컴퓨터는 숫자를 0부터 센다.
+        $('.list li a:eq(2)').css('background-color', 'pink');
+
+        // 짝수를 skyblue로 변경
+        $('.list li a:odd').css('background-color', 'skyblue')
+    })
+</script>
+<body>
+    <ul class="list">
+        <li><a href="#">list1</a></li>
+        <li><a href="#">list2</a></li>
+        <li><a href="#">list3</a></li>
+        <li><a href="#">list4</a></li>
+        <li><a href="#">list5</a></li>
+    </ul>
+</body>
+</html>

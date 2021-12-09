@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery_filter2</title>
+</head>
+<style>
+    .wrap{
+        width:420px;
+        padding:10px;
+        background-color:gray;
+    }
+
+    .box{
+        width:300px;
+        background-color:#ddd;;
+    }
+
+    ul{
+        width:200px;
+        background-color:pink;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <ul>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+            </ul>
+            <p>p태그</p>
+            <span>span태그</span>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('ul').parent().css('width', 400);
+            $('ul').parents('.wrap').css('width', 500);
+            $('.box').children('p').css('color', 'blue');
+            $('.box').find('a').css('color', 'gold');
+            $('li:eq(2)').next().css('color', 'red');
+            $('li:eq(2)').prev().css('color', 'red');
+            
+        })
+    </script>
+</body>
+</html>

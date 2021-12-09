@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery_filter2</title>
+</head>
+<style>
+    .wrap{
+        width:420px;
+        padding:10px;
+        background-color:gray;
+    }
+
+    .box{
+        width:300px;
+        background-color:#ddd;;
+    }
+
+    ul{
+        width:200px;
+        background-color:pink;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <ul>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+                <li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+            </ul>
+            <p>p태그</p>
+            <span>span태그</span>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            // parent() : 타겟을 감싸고 있는 부모태그
+            $('ul').parent().css('width',400);
+            
+            // parents() : 타겟을 감싸고 있는 태그들 중에서 원하는 태그를 선택
+            $('ul').parents('.wrap').css('width',500);
+
+            // children() : 타겟의 자식태그 = .box > p
+            $('.box').children('p').css('color', 'red');
+
+            // find() : 타켓의 후손들 중에서 원하는 태그를 선택
+            //$('.box').children('ul').children('li').children('a').
+            $('.box').find('a').css('color', 'gold');
+
+            // next() : 타겟의 다음에 있는 태그 = li + li
+            $('li:eq(2)').next().css('color', 'green');
+
+            // prev() : 타겟의 이전에 있는 태그
+            $('li:eq(2)').prev().css('color', 'orange');
+
+            // siblings() : 타겟의 형제 태그
+            $('ul').siblings('span').css('color','blue')
+
+            // filter
+            $('li').filter(':first').css('color', 'blue');
+            // $('li:first') = $('li').filter(':first')
+            // $('li:last') = $('li').filter(':last')
+            // $('li:odd') = $('li').filter(':odd')
+            // $('li:even') = $('li').filter(':even')
+
+            // eq
+            $('li').eq(2).css('color', 'skyblue');
+            // $('li:eq(2)')
+
+            // .not() : ~를 제외한
+            $('li').not(':first').css('color', '#000');
+            // $('li:not(:first)') : 첫 번째를 제외한 li
+            // $('li:not(':last')) : 마지막을 제외한 li
+            // $('li:not(':eq(2)')) : 3번째를 제외한 li
+            // $('li:not(:animated)') = $('li:not(':animated')) 
+            // : 움직이는 것을 제외한 li -> li가 움직이지 않을 때에만 다음을 실행하여라
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            background-color:#ddd;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 문서가 준비되면 다음을 실행하여라
+        $(document).ready(function(){
+            // box의 배경색을 다른색으로 변경
+            $('.box').css('background-color','gray');
+        })
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+
+
+<!-- 
+    스타일 우선순위 
+    -> 동일한 스타일이 설정되어 있는 경우 맨 마지막에 선언한 
+        스타일이 최종적으로 적용된다.
+
+    -> 선택자가 다를 경우 점수를 체크해서 더 높은 점수에 있는 
+        스타일이 적용된다.
+
+    -> !important > 엘리먼트 스타일 > id(100점) > class(10점) > tag(1점)
+        ex) div : 1점 / .box : 10점 / div .box (div 안에 있는 box) : 11점
+            div.box (div에 적용된 box) : 11점 <div class="box">
+            .box.box1 : 20점 <태그 class = "box box1">
+            .list li a : 12점
+            #list : 100점
+            <div style="color:red;"> : 엘리먼트 스타일
+            div {color:red !important;}
+
+-->
