@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01.변수</title>
+</head>
+<body>
+    <script>
+        // 변수 : 데이터를 저장할 수 있는 메모리 공간
+        //        : 한 개의 데이터만 저장이 가능하고, 새로운 데이터가 들어가면 이전 데이터는 삭제된다.
+        // var a그릇 = 햄;
+        var a = 100; // a라는 변수에 100이라는 값을 치환하여라
+        a = 200; // a의 100은 사라지고, 200이라는 숫자가 새롭게 치환된다.
+
+        /*
+        [변수 이름 지정 시 주의할 점]
+        - 띄어쓰기는 하지 않는다.
+        - 한글은 쓰지 않는다.
+        - 영어는 대소문자를 구분한다.
+        - 특수기호는 _ $ 만 사용 가능하다.
+        - 첫글자는 숫자를 사용하지 않는다.
+        - 약속어를 사용하지 않는다. (document, window, name ...)
+        - 변수이름에 의미를 정확히 부여한다.
+        */
+
+        // [데이터 유형] - 문자형, 숫자형, 논리형, 비워진 데이터
+        
+        // [문자형 데이터 - String]
+        var str1 = "javascript";
+        var str2 = '100';
+        var str3 = '<h1>String</h1>';
+        document.write(str1, '<br />');
+        document.write(str2, '<br>');
+        document.write(str3, '<br>');
+
+        // [숫자형 데이터 - Number]
+        var num1 = 200;
+        //var num2 = '100';
+        var num2 = Number(str2);    // 문자형 데이터를 숫자형 데이터로 치환
+        document.write(num1, '<br>');
+        document.write(num1+num2, '<br>');
+
+        // [논리형 데이터 - Boolean] - true / false
+        var bool1 = true;
+        var bool2 = false;
+        var bool3 = 10 < 5; // false
+        var bool4 = Boolean('sbs')   // 0, null, undefined를 제외한 나머지 true
+        document.write(bool1, '<br>');
+        document.write(bool2, '<br>');
+        document.write(bool3, '<br>');
+        document.write(bool4, '<br>');
+
+        // [비워진 데이터] - null, undefined
+        var b;
+        var c = null;
+        document.write(b, '<br>');
+        document.write(c, '<br>');
+
+        // [typeof - 데이터 유형을 체크하는 명령어]
+        document.write(typeof str2, '<br>');
+        document.write(typeof num1, '<br>');
+    </script>
+</body>
+</html>
