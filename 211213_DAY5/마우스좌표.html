@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스좌표</title>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{height:100%;}
+    </style>
+</head>
+<body>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 0. body에서 마우스를 움직였을 때, body의 배경색을 변경
+        // 1. 마우스의 x좌표와 y좌표를 구하여 화면에 표시하여라
+        $(document).ready(function(){
+            $('body').mousemove(function(event){
+                // $('body').css('background-color', 'gray')
+                // console.log(event)
+
+                var x = event.clientX; // 마우스의 x 좌표
+                var y = event.clientY; // 마우스의 y좌표
+
+                $('body').html('x좌표값 : ' + x + '<br>y좌표값 : '+ y)
+            })
+        })
+    </script>
+</body>
+</html>

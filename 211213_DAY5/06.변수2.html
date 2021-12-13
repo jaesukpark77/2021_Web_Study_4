@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06.변수2</title>
+</head>
+<body>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 현재 브라우저의 width 값을 체크하여 body에 표시
+        $(document).ready(function(){
+            // $('body').text($(window).width())
+
+            var win_w = $(window).width()
+            $('body').text(win_w)
+
+            /*
+            var win = $(window)
+            var body = $('body')
+            var win_w = win.width()
+            body.text(win_w)
+            */
+        })
+    </script>
+</body>
+</html>
