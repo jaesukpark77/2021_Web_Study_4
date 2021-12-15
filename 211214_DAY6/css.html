@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+</head>
+<style>
+    div{
+        width:100px;
+        height:100px;
+        background-color:#ddd;
+        margin:10px;
+    }
+</style>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            // width:300px; background-color:gray;
+            $('.box1').css('width', 300);
+            $('.box1').css('background-color', 'gray');
+
+            // $('선택자').css('속성', '속성값'); - 속성을 1개만 변경
+            // $('선택자').css({ '속성':'속성값', '속성' : '속성값'})  - 속성을 여러개 변경 가능
+
+            $('.box2').css({'width':300, 'background-color':'gray'})
+
+            $('.box3').css({
+                'width':300,
+                'background-color':'gray'
+            })
+
+            $('.box4').css({
+                width:300,
+                backgroundColor : 'gray',
+                borderRight : '5px solid #000'
+            })
+        })
+    </script>
+</body>
+</html>
