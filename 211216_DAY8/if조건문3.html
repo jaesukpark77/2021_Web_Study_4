@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if조건문3</title>
+</head>
+<body>
+    <input type="text">
+    <button>전송</button>
+
+    <p></p>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 태그에 있는 내용은 text / form에 있는 내용은 value라고 한다.
+        // .val('내용') : 내용을 변경(삽입)하여라
+        // .val('') : 내용을 지워라/비워라
+        // .val() : 내용을 체크하여라 / 가지고 와라
+
+        // input의 value == ' '
+
+        // 0.text : button을 클릭했을 때, p에 '전송완료'라고 표시
+        // 1. input에 내용이 있으면 p에 '전송이 완료되었습니다'라고 표시, 
+        //    내용이 없으면 p에 '이메일을 입력하세요'라고 표시
+        $(function(){
+            $('button').click(function(){
+                $('p').text('전송완료')
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 조건문1</title>
+</head>
+<body>
+    <script>
+        var avg = prompt('평균점수를 입력하세요', 0) // 내용 입력이 가능한 안내창
+        // alert('합격') // 결과창
+
+        //  1. 평균점수가 60점 이상이면 '합격'이라고 표시
+        //      60점 미만인 경우 '불합격'이라고 표시
+        /*
+        if( avg >= 60 ){
+            alert('합격')
+        }else{
+            alert('불합격')
+        }
+        */
+
+        // 2. 평균점수가 70점 이상이면 '우수', 50점 이상이면 '보통', 50점 미만이면 '노력'이라고 표시
+        if(avg >= 70){
+            alert('우수')
+        } else if(avg >= 50) {
+            alert('보통')
+        } else{
+            alert('노력')
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if조건문2</title>
+</head>
+<body>
+    <script>
+        // - 평균점수를 0~100까지 입력했을 때에만 다음을 실행하여라
+        // - 90점 이상이면 'A', 80점 이상이면 'B'라고 표시, 70점 이상이면 'C', 60점 이상이면 'D', 나머지 'F'라고 표시
+
+        var avg = prompt('평균점수를 입력하시오', '0~100까지의 숫자를 입력하세요')
+        if(avg >=0 && avg <= 100){
+            if(avg >= 90){
+                alert('A')
+            }else if(avg >= 80){
+                alert('B')
+            }else if(avg >= 70){
+                alert('C')
+            }else if(avg >= 60){
+                alert('D')
+            }else{
+                alert('F')
+            }
+        }else{
+            alert('0~100까지의 숫자를 입력하세요')
+        }
+    </script>
+</body>
+</html>
