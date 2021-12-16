@@ -1,0 +1,14 @@
+[css] - width, height, background ...
+$('p').css('width', 300) - width를 변경
+$('p').width(300) - width를 변경
+$('p').css('width') - width를 체크하여러(값을 가지고 와라)
+$('p').width() - width를 체크하여라(값을 가지고 와라)
+
+[text]
+$('p').text('내용') - text를 변경
+$('p').text('') - text를 비워라(지워라)
+$('p').text() - text를 체크 (값을 가지고 와라)
+
+[attr] - src, href, alt, title ...
+$('img').attr('src', 내용) - 속성을 변경
+$('img').attr('src') - 속성을 체크(가지고 와라)

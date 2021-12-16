@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery1</title>
+</head>
+<body>
+    <ul>
+        <li><a href="#">영화1</a></li>
+        <li><a href="#">영화2</a></li>
+        <li><a href="#">영화3</a></li>
+        <li><a href="#">영화4</a></li>
+        <li><a href="#">영화5</a></li>
+    </ul>
+
+    <p><img src="../img/mov1.jpg"></p>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('a').eq(0).click(function(){
+                $('p img').attr('src', '../img/mov1.jpg')
+            })
+
+            // 2번쩨 a를 클릭했을 때, p의 img 경로가 mov2.jpg로 변경되도록 설정
+            $('a').eq(1).click(function(){
+                $('p img').attr('src', '../img/mov2.jpg')
+            })
+
+            $('a').eq(2).click(function(){
+                $('p img').attr('src', '../img/mov3.jpg')
+            })
+
+            $('a').eq(3).click(function(){
+                $('p img').attr('src', '../img/mov4.jpg')
+            })
+
+            $('a').eq(4).click(function(){
+                $('p img').attr('src', '../img/mov5.jpg')
+            })
+        })
+    </script>
+</body>
+</html>
