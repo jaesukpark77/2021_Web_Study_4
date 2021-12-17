@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gallery4</title>
+</head>
+<body>
+  <ul>
+    <li><a href="#">영화1</a></li>
+    <li><a href="#">영화2</a></li>
+    <li><a href="#">영화3</a></li>
+    <li><a href="#">영화4</a></li>
+    <li><a href="#">영화5</a></li>
+  </ul>
+  <p><img src="../img/mov1.jpg" alt=""></p>
+
+  <script src="js/jquery-3.6.0.js"></script>
+  <script>
+    // 1. a를 클릭했을 때 2번 이미지가 나오도록 설정
+    // 2. 규칙을 찾아서 변수처리
+    $(function(){
+      $('a').click(function(){
+        var n = $(this).parent().index() + 1
+        $('p img').attr('src','../img/mov'+n+'.jpg')
+      })
+    })
+  </script>
+</body>
+</html>
