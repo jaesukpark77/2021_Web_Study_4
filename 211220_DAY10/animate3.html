@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate3</title>
+    <style>
+        *{margin:0;padding:0}
+        .box{
+            width:100px;
+            height:100px;
+            margin:10px;
+            background-color:gray;
+        }
+        button{
+            width:200px;
+            height:40px;
+            margin:10px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="stop">정지</button>
+    <button class="play">재생</button>
+    <div class="box"></div>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // setInterval : n초에 한번씩 반복실행하도록 설정
+        // clearInterval : 설정된 setInterval을 지울 때 사용
+        $(function(){
+            function ani(){
+                $('.box').animate({marginLeft:500},1000, function(){
+                    $(this).delay(1000).animate({marginLeft:10},1000)
+                })
+            }
+            var rolling = setInterval(ani,3000)
+            ani()
+
+            $('.stop').click(function(){
+                clearInterval(rolling)
+            })
+
+            $('.play').click(function(){
+                rolling = setInterval(ani, 3000)
+                ani()
+            })
+
+        })
+    </script>
+</body>
+</html>

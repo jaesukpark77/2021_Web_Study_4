@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate_02.if문</title>
+    <style>
+        *{margin:0;padding:0}
+        html,body{height:100%;}
+        .box{
+            width:200px;
+            height:100%;
+            background-color:gray;
+            font-size:50px;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // box를 클릭했을 때, box의 width가 200이라면 width를 95%까지 늘리고, 
+        // 아니면 다시 200으로 줄어들어라
+        $(function(){
+
+            $('.box').click(function(){
+                if($('.box').width() == 200){
+                    $('.box').animate({width:'95%'})
+                }else{
+                    $('.box').stop().animate({width:200})
+                }
+            })
+        })
+    </script>
+</body>
+</html>

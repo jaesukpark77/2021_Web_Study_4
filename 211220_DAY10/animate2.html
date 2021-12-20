@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate2</title>
+    <style>
+        *{margin:0;padding:0}
+        .box{
+            width:100px;
+            height:100px;
+            margin:10px;
+            background-color:gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // box가 1초동안 오른쪽으로 이동하고 (marginLeft : 500),
+        // 1초동안 머물러 있다가 다시 1초동안 원래대로 돌아오도록 설정(10)
+        $(function(){
+
+            // ani라는 함수를 만들기 - box가 움직이는 애니메이션을 만들기
+            function ani(){
+                $('.box').animate({marginLeft:500}, 1000, function(){
+                    $('.box').delay(1000).animate({marginLeft:10}, 1000)
+                })
+            }
+            /*
+            setInterval(function(){
+                ani()
+            }, 3000) // 3초 뒤에 3초마다 실행
+            */
+            
+            setInterval(ani, 3000)
+
+            ani() // 페이지가 시작되면 1번 실행
+            
+        })
+    </script>
+</body>
+</html>
