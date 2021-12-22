@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery</title>
+    <style>
+        *{margin:0;padding:0}
+        ul, ol, li{list-style:none;}
+        .wrap{
+            width:125px;
+            height:179px;
+            position:relative;
+            margin:100px auto;
+            overflow:hidden;
+        }
+
+        .wrap ul{
+            width: 625px;/* 125*5*/
+            position:absolute;
+            left:0;
+            top:0;
+        }
+
+        .wrap ul li{
+            float:left;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li><img src="../img/mov1.jpg" alt=""></li>
+            <li><img src="../img/mov2.jpg" alt=""></li>
+            <li><img src="../img/mov3.jpg" alt=""></li>
+            <li><img src="../img/mov4.jpg" alt=""></li>
+            <li><img src="../img/mov5.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 1. img를 클릭했을 때 2번 이미지로 이동(왼쪽으로 1칸 이동)
+        // 2. 규칙을 찾아서 변수처리 후 클릭할 때 마다 계속 왼쪽으로 이동되도록 설정
+        // 3. 마지막에서 다시 처음으로 이동되도록 설정
+        // 4. li의 갯수를 세서 if문에 적용
+        $(function(){
+            var n = 0
+            var mov_li = $('li').length; // 갯수 세는 명령ㅇ어
+            $('img').click(function(){
+                n++
+                if(n==mov_li){
+                    n = 0
+                }
+                $('ul').animate({left:-125 * n})
+            })
+        })
+    </script>
+</body>
+</html>

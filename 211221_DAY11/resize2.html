@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resize2</title>
+    <style>
+        *{margin:0;padding:0}
+        .box{
+            width:50px;
+            height:500px;
+            background-color:gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 브라우저의 사이즈가 변해도, box의 width가 전체 사이즈에서 50px 뺀 만큼으로 유지되도록 설정
+        $(function(){
+            $(window).resize(function(){
+                var win_w = $(window).width()
+                $('.box').css({width:win_w - 50})
+            }).resize()
+
+            // if(win_w >= 768){  }
+        })
+    </script>
+</body>
+</html>
