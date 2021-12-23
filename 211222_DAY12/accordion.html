@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accordion.html</title>
+    <style>
+        *{margin:0;padding:0}
+        h1{
+            font-size:24px;
+            text-align:center;
+            margin:50px 0 30px;
+        }
+
+        .list{
+            width:400px;
+            margin:0 auto;
+        }
+
+        .list dt{
+            height:40px;
+            line-height:40px;
+            background-color:#333;
+            color:#fff;
+            padding-left:20px;
+            border-bottom:1px solid #777;
+            cursor:pointer;
+        }
+
+        .list dd{
+            height:300px;
+            background-color:#ddd;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>1. 하나씩 열리는 아코디언 형식의 리스트</h1>
+    <dl class="list list1">
+        <dt>제목영역1</dt>
+        <dd>내용영역1</dd>
+
+        <dt>제목영역2</dt>
+        <dd>내용영역2</dd>
+
+        <dt>제목영역3</dt>
+        <dd>내용영역3</dd>
+
+        <dt>제목영역4</dt>
+        <dd>내용영역4</dd>
+
+        <dt>제목영역5</dt>
+        <dd>내용영역5</dd>
+    </dl>
+
+    <h1>2. 자유롭게 열고닫는 아코디언 형식의 리스트</h1>
+    <dl class="list list2">
+        <dt>제목영역1</dt>
+        <dd>내용영역1</dd>
+
+        <dt>제목영역2</dt>
+        <dd>내용영역2</dd>
+
+        <dt>제목영역3</dt>
+        <dd>내용영역3</dd>
+
+        <dt>제목영역4</dt>
+        <dd>내용영역4</dd>
+
+        <dt>제목영역5</dt>
+        <dd>내용영역5</dd>
+    </dl>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // .stop() - 앞의 동작을 멈추고, 다음 동작을 실행하여라
+        // not(:animated) - 움직이는 것을 제외하고 실행하여라
+        //                     - 움직이지 않을 때에만 실행하여라
+        $(function(){
+            // [하나씩 열리는 리스트 - list1]
+            // 1. list1의 첫번째 dd를 제외한 나머지 dd를 보이지 않게 설정
+            // 2. list1의 dt를 클릭했을 때, 해당하는 dd가 slideDown 되어라
+
+            /*
+            $('.list1 dd').hide()
+            $('.list1 dd:first').show()
+            */
+
+            $('.list1 dd:not(:first)').hide()
+
+            $('.list1 dt').click(function(){
+                $('.list1 dd:not(:animated)').slideUp()
+                $(this).next().slideDown()
+            })
+
+            // [list2]
+            $('.list2 dd').hide()
+
+            $('.list2 dt').click(function(){
+                $(this).next().not(':animated').slideToggle()
+            })
+        })
+    </script>
+</body>
+</html>
+
+
+<!--
+    $('dt').click(function(){
+    
+        $(this) : dt
+        $('dd', this) : dt dd - 클릭한 dt 안에 있는 dd
+        $('+dd', this : dt + dd - 클릭한 dt 뒤에있는 dd
+    })
+-->
