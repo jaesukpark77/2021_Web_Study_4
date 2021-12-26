@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login3</title>
+    <style>
+        *{margin:0;padding:0;}
+
+        div{
+            margin:10px;
+            position:relative;
+        }
+
+        label{
+            position:absolute;
+            left:10px;
+            top:7px;
+            font-size:12px;
+            color:#aaa;
+        }
+
+        input{
+            width:200px;
+            height:30px;
+            border:1px solid #aaa;
+        }
+
+        .blind{
+            position:absolute;;
+            left:-9999px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="uid">아이디</label>
+        <input type="text" id="uid">
+    </div>
+
+    <div>
+        <label for="upw">비밀번호</label>
+        <input type="password" id="upw">
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // input에 focus했을 때, 해당 label을 표시하지 말아라
+        // input에서 blur되었을 때, 만약 input이 비어있으면 해당 label을 다시 표시하여라
+        $(function(){
+            $('input').focus(function(){
+                $(this).prev().addClass('blind')
+            })
+
+            $('input').blur(function(){
+                var txt = $(this).val()
+                if(txt == ''){
+                    $(this).prev().removeClass('blind')
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+
+<!--
+    ** 글자를 표시하지 않는 방식 **
+    
+    1. 시각장애인 X
+        -> display:none;
+
+    2. 시각장애인 O, 영역 O (배경이미지 설정하는 경우)
+        -> text-indent : -9999px; overflow:hidden;
+
+    3. 시각장애인 O, 영역 X
+        -> text-indent:-9999px; overflow:hiddem; width:0; height:0;
+            position:absolute;
+        -> position:absoulte; left:-9999px;
+            (주로 blind나 screen_out이라는 class를 추가하여 사용한다.)
+        
+
+-->

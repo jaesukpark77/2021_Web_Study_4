@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login1</title>
+</head>
+<body>
+    <p>
+        <label for="uid">아이디</label>
+        <input type="text" id="uid" value="ID">
+    </p>
+
+    <p>
+        <label for="upw">비밀번호</label>
+        <input type="text" id="upw" value="PW">
+    </p>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 태그에 있는 내용은 text / form에 있는 내용은 value라고 한다.
+        // .val('내용') : 내용을 변경하여라
+        // .val('') : 내용을 지워라
+        // .val() : 내용을 가지고 와라 / 확인하여라
+
+        // #uid에 focus 되었을 때, value값이 'ID'라면 해당 value를 지워라
+        // #uid에서 blur 되었을 때, value 값이 비어있으면 다시 'ID'라고 표시
+        $(function(){
+            $('#uid').focus(function(){
+                if($('#uid').val() == 'ID'){
+                    $(this).val('')
+                }
+            })
+
+            $('#uid').blur(function(){
+                if($('#uid').val() == ''){
+                    $(this).val('ID')
+                }
+            })
+
+            $('#upw').focus(function(){
+                if($('#upw').val() == 'PW'){
+                    $('#upw').val('')
+                }
+            })
+
+            $('#upw').blur(function(){
+                if($('#upw').val() == ''){
+                    $('#upw').val('PW')
+                }
+            })
+        })
+    </script>
+</body>
+</html>

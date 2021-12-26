@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login2</title>
+    <style>
+        input{color:#aaa;}
+        .color{color:#000;}
+    </style>
+</head>
+<body>
+    <p>
+        <label for="uid">아이디</label>
+        <input type="text" id="uid" value="ID">
+    </p>
+
+    <p>
+        <label for="upw">비밀번호</label>
+        <input type="text" id="upw" value="PW">
+    </p>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('input').each(function(){
+                var txt_o = this.defaultValue; // 원래의 value값을 기록
+
+                // 각 input에 focus했을 때, 지금의 value값이 원래의 value값과
+                // 같다면 해당 value를 삭제
+                $(this).focus(function(){
+                    var txt_n = $(this).val()
+                    if(txt_n == txt_o){
+                        $(this).val('')
+                        $(this).addClass('color')
+                    }
+                })
+
+                // 현재의 input에서 blur되었을 때, 지금의 value값이 비어있으면
+                // 다시 이전 value값이 표시되어라
+                $(this).blur(function(){
+                    $(this).blur(function(){
+                        var txt_n = $(this).val()
+                        if(txt_n == ''){
+                            $(this).val(txt_o).removeClass('color')
+                        }
+                    })
+                })
+
+            })
+        })
+    </script>
+</body>
+</html>
