@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol,li {list-style:none;}
+        a{text-decoration:none;}
+
+        .wrap{
+            width:300px;
+            margin:100px auto;   /*width가 없으면 실행 X*/
+        }
+
+        .tab{height:40px;}
+
+        .tab li{
+            float:left; 
+        }
+
+        .tab li a{
+            display:block;
+            height:40px;
+            line-height:40px;
+            padding:0 20px;
+            background-color:#333;
+            color:#fff;
+        }
+        
+        .tab li a.on{
+            background-color:gold;
+            color:#333;
+        }
+
+        .con{
+            /*height:300px;*/
+            height:1000px;
+            line-height:300px;
+            background-color:#ddd;
+            text-align:center;
+            font-size:30px;
+        }
+
+        .con{display:none}
+
+        .con:first-of-type{display:block;}
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="tab">
+            <li><a href="#photo" class="on">menu1</a></li>
+            <li><a href="#illu">menu2</a></li>
+            <li><a href="#web">menu3</a></li>
+        </ul>
+
+        <div class="con" id="photo">포토샵</div>
+        <div class="con" id="illu">일러스트</div>
+        <div class="con" id="web">웹사이트</div>
+    </div>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 1. 첫번째 con을 제외한 나머지를 보이지 않게 설정
+        // 2. a를 클릭했을 때, 클릭한 a의 관련된 con이 나와라
+        // 2-1 : 클릭한 a의 순서값으로 설정하는 방식
+        // 2-2 : con에 이름을 설정하여 정확하게 타겟을 지정하는 방식
+        //      : 클릭한 a의 href값을 사용하여 해당하는 박스가 표시되도록 설정
+        // 3. 클릭한 a만 스타일이 변경되도록 설정
+        $(function(){
+            /*
+            $('.con').hide()
+            $('.con:first').show()
+            */
+
+            // $('.con:not(:first)').hide()
+
+            /*
+            $('a').click(function(){
+                n = $(this).parent().index()
+                $('.con').hide()
+                $('.con').eq(n).show()
+            })
+            */
+
+            $('a').click(function(){
+                var link = $(this).attr('href')
+                $('.con').hide()
+                $(link).show()
+
+                /*
+                $('a').css({backgroundColor:'#333', color:'#fff'})
+                $(this).css({backgroundColor : 'gold', color:'#333'})
+                */
+
+                $('a').removeClass('on')
+                $(this).addClass('on')
+
+                return false;
+
+            })
+
+        })
+    </script>
+</body>
+</html>

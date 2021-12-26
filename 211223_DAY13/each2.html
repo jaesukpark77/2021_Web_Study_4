@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each2</title>
+</head>
+<body>
+    <ul>
+        <li><span>1</span> - 오리인테이션</li>
+        <li><span>5</span> - 실습</li>
+        <li><span>9</span> - 쪽지시험</li>
+        <li><span>17</span> - 조별실습</li>
+        <li><span>28</span> - 시험</li>
+    </ul>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // 1. 첫번째 span의 숫자가 한자릴 숫자라면 앞에 '0'을 붙여서 표시하여라
+            var day = $('span').eq(0).text()
+            if(day < 10){
+                $('span').eq(0).text('0'+day)
+            }
+        })
+    </script>
+</body>
+</html>

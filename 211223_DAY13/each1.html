@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each1</title>
+</head>
+<body>
+    <ul>
+        <li>사과</li>
+        <li>딸기</li>
+        <li>바나나</li>
+        <li>수박</li>
+    </ul>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // console.log('박재석')
+            // 각 li에 있는 글자를 console.log()를 사용하여 콘솔창에 표시
+
+            // 첫번째 li의 글자를 콘솔창에 표시
+            /*
+            var name1 = $('li').eq(0).text()
+            console.log(name1)
+            */
+
+            // each 
+            $('li').each(function(){
+                var name = $(this).text()
+                console.log(name)
+            })
+        })
+    </script>
+</body>
+</html>
