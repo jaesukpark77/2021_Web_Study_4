@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gnb3</title>
+    <style>
+        *{margin:0;padding:0}
+        ul,ol,li{list-style:none;}
+        a{text-decoration:none; color:#333;}
+
+        .gnb{
+            width:800px;
+            height:40px;
+            margin:0 auto;
+        }
+
+        .gnb > li{
+            float:left;
+            width:200px;
+            position:relative;
+        }
+
+        .gnb li a{
+            display:block;
+            height:40px;
+            line-height:40px;
+            text-align:center;
+            background-color:#ddd;
+        }
+
+        .gnb > li > a{
+            background-color:#333;
+            color:#fff;
+        }
+
+        .sub{
+            position:absolute;
+            left:0;
+            top:40px;
+            width:100%;
+            display:none;
+            z-index:20;
+        }
+
+        .sub_bg{
+            position:absolute;
+            left:0;
+            width:100%;
+            height:200px;
+            background-color:#ddd;
+            z-index:10;
+            display:none;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // sub가 한꺼번에 내려오도록 설정
+        $(function(){
+           $('.gnb').mouseenter(function(){
+               $('.sub, .sub_bg').slideDown(100)
+           })
+
+           $('.nav_wrap').mouseleave(function(){
+               $('.sub, .sub_bg').slideUp(100)
+           })
+        })
+    </script>
+</head>
+<body>
+    <div class="nav_wrap">
+        <ul class="gnb">
+            <li>
+                <a href="#">menuA</a>
+                <ul class="sub">
+                    <li><a href="#">subA</a></li>
+                    <li><a href="#">subA</a></li>
+                    <li><a href="#">subA</a></li>
+                    <li><a href="#">subA</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">menuB</a>
+                <ul class="sub">
+                    <li><a href="#">subB</a></li>
+                    <li><a href="#">subB</a></li>
+                    <li><a href="#">subB</a></li>
+                    <li><a href="#">subB</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">menuC</a>
+                <ul class="sub">
+                    <li><a href="#">subC</a></li>
+                    <li><a href="#">subC</a></li>
+                    <li><a href="#">subC</a></li>
+                    <li><a href="#">subC</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">menuD</a>
+                <ul class="sub">
+                    <li><a href="#">subD</a></li>
+                    <li><a href="#">subD</a></li>
+                    <li><a href="#">subD</a></li>
+                    <li><a href="#">subD</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="sub_bg"></div>
+    </div>
+
+    <div class="visual">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam reiciendis provident doloribus saepe facere facilis atque aliquid, veritatis magni dignissimos quidem obcaecati quos illum animi officiis! Velit vel rerum facilis.
+    </div>
+</body>
+</html>

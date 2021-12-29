@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navi</title>
+    <link href="css/navi.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="header_inner">
+                <h1 class="logo">RESPONSIVE</h1>
+                
+                <button class="btn_nav mobile">
+                    <span>메뉴열기</span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="navWrap">
+                    <h2>주메뉴 영역</h2>
+                    <div class="nav_inner">
+                        <button class="close mobile">
+                            <span>메뉴닫기</span>
+                            <span></span>
+                        </button>
+                        <ul class="gnb">
+                            <li>
+                                <a href="#">menu A</a>
+                                <ul class="sub">
+                                    <li><a href="#">subA</a></li>
+                                    <li><a href="#">subA</a></li>
+                                    <li><a href="#">subA</a></li>
+                                    <li><a href="#">subA</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="#">menu B</a>
+                                <ul class="sub">
+                                    <li><a href="#">subB</a></li>
+                                    <li><a href="#">subB</a></li>
+                                    <li><a href="#">subB</a></li>
+                                    <li><a href="#">subB</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="#">menu C</a>
+                                <ul class="sub">
+                                    <li><a href="#">subC</a></li>
+                                    <li><a href="#">subC</a></li>
+                                    <li><a href="#">subC</a></li>
+                                    <li><a href="#">subC</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="#">menu D</a>
+                                <ul class="sub">
+                                    <li><a href="#">subD</a></li>
+                                    <li><a href="#">subD</a></li>
+                                    <li><a href="#">subD</a></li>
+                                    <li><a href="#">subD</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div><!-- // header_inner -->
+            <div class="sub_bg"></div>
+        </header>
+        <div id="visual"></div>
+    </div><!-- // nav -->
+    
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        // pc, mobile 체크하는 방법
+        // 1. $(window).width()를 사용하여 화면 크기를 체크하는 방법
+        // 2. btn_nav를 클릭하게 되면 모바일 상태, 아니면 pc상태
+        //    -> #navWrap에 nav_on이라는 class가 있으면 mobile
+        //    -> #navWrap에 nav_on이라는 class가 없으면 pc
+        $(function(){
+            // btn_nav를 클릭했을 때 #navWrap에 nav_on이라는 class가 붙어라
+            $('.btn_nav').click(function(){
+                $('#navWrap').addClass('nav_on')
+            })
+
+            // close를 클릭했을 때 #navWrap에서 nav_on이라는 class를 삭제하여라
+            // close를 클릭했을 때 열려있는 sub가 닫히도록 설정
+            $('.close').click(function(){
+                $('#navWrap').removeClass('nav_on')
+                $('.sub').hide()
+            })
+
+            // pc : gnb에 마우스를 올렸을 때, sub/sub_bg가 표시되도록 설정
+            $('.gnb').mouseenter(function(){
+                /*
+                var win_w = $(window).width()
+                if(win_w >= 786){
+                    $('.sub, .sub_bg').slideDown(100)
+                }
+                */
+
+                if($('#navWrap').hasClass('nav_on') == false){
+                    $('.sub, .sub_bg').slideDown(100)
+                }
+            })
+
+            // pc : header에서 마우스가 빠져나갔을 때, sub/sub_bg가 표시되지 않도록 설정
+            $('header').mouseleave(function(){
+                if($('#navWrap').hasClass('nav_on') == false){
+                    $('.sub, .sub_bg').slideUp(100)
+                }
+            })
+
+            // mobile : gnb의 a를 클릭했을 때, sub가 slideToggle 되도록 설정
+            $('.gnb > li > a').click(function(){
+                if($('#navWrap').hasClass('nav_on') == true){
+                    $(this).next().not(':animated').slideToggle()
+                }
+            })
+
+            // 화면의 사이즈가 늘어났을 때, navWrap의 nav_on이 사라지도록 설정
+            // -> close를 클릭 해
+
+            $(window).resize(function(){
+                var win_w = $(window).width()
+                if(win_w >= 768){
+                    $('.close').click()
+                }
+            })
+
+        })
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
