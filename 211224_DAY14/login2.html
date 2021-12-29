@@ -40,12 +40,10 @@
                 // 현재의 input에서 blur되었을 때, 지금의 value값이 비어있으면
                 // 다시 이전 value값이 표시되어라
                 $(this).blur(function(){
-                    $(this).blur(function(){
-                        var txt_n = $(this).val()
-                        if(txt_n == ''){
-                            $(this).val(txt_o).removeClass('color')
-                        }
-                    })
+                    var txt_n = $(this).val()
+                    if(txt_n == ''){
+                        $(this).val(txt_o).removeClass('color')
+                    }
                 })
 
             })
