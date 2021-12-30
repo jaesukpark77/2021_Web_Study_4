@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol,li{list-style:none;}
+
+        .slider{
+            width:400px;
+            height:580px;
+            margin:50px auto;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .list{
+            width:2000px;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+
+        .list li{
+            float:left;
+            width:400px;
+        }
+
+        .list li img{
+            width:100%;
+        }
+
+        .slider > button{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            z-index:10;
+            width:60px;
+            height:60px;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        .slider .prev{left:10px;}
+        .slider .next{right:10px;}
+
+        .indi{
+            position:absolute;;
+            left:0;
+            bottom:10px;
+            z-index:10;
+            width:100%;
+            text-align:center;
+        }
+
+        .indi li{
+            display:inline-block;
+            width:10px;
+            height:10px;
+            border:2px solid #fff;
+            border-radius:10px;
+            text-indent:-9999px;
+            overflow:hidden;
+            cursor:pointer;
+        }
+
+        .indi .on{
+            background-color:#fff;
+        }
+
+        .play{display:none;}
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <button class="prev">PREV</button>
+        <button class="next">NEXT</button>
+
+        <ul class="list">
+            <li><a href="#"><img src="../img/mov1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../img/mov2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../img/mov3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../img/mov4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="../img/mov1.jpg" alt=""></a></li>
+        </ul>
+
+        <div class="indi">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+
+            <button class="stop">stop</button>
+            <button class="play">play</button>
+        </div>
+    </div>
+    
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        // 1. next
+        // - 2번 이미지가 나와라
+        // - 변수를 찾아서 계속 왼쪽으로 이동되도록 설정
+        // - 마지막에서 다시 처음으로 이동되도록 설정
+        // - css를 활용해서 자연스럽게 연결되도록 설정
+
+        // 2. prev
+
+        // 3. indi
+        // - 클릭한 li의 스타일을 변경하여라
+        // - 클릭한 li에 관련된 이미지로 이동
+        // - next, prev를 클릭했을 때 해당하는 li에 on이 붙도록 설정
+
+        // 4.rolling
+        // - 2초에 한번씩 왼쪽으로 이동하는 롤링을 설정
+        // 4-1 : slider에 마우스를 올렸을 때 롤링이 멈추고, 벗어나면 다시 롤링을 시작하여라
+        // 4-2 : 정지버튼을 클릭하면 롤링이 멈추고, 재생버튼을 클릭하면 롤링이 시작되어라
+        $(function(){
+            var rolling = setInterval(function(){
+                $('.next').click()
+            },2000)
+
+            $('.stop').click(function(){
+                clearInterval(rolling)
+                $('.play').show()
+                $('.stop').hide()
+            })
+
+            $('.play').click(function(){
+                rolling = setInterval(function(){
+                    $('.next').click()
+                },2000)
+                $('.play').hide()
+                $('.stop').show()
+            })
+
+            /*
+            $('.slider').mouseover(function(){
+                clearInterval(rolling)
+            })
+
+            $('.slider').mouseout(function(){
+                rolling = setInterval(function(){
+                    $('.next').click()
+                },2000)
+            })
+            */
+
+            $('.indi li').click(function(){
+                $('.indi li').removeClass('on')
+                $(this).addClass('on')
+
+                n = $(this).index()
+                $('.list').stop().animate({left:-400*n})
+            })
+
+            var n = 0
+            $('.next').click(function(){
+                n++
+                if(n==5){ // n>3
+                    n = 1
+                    $('.list').css({left:-400*0}) // 마지막과 동일한 이미지
+                }
+                $('.list').stop().animate({left:-400*n})
+
+                $('.indi li').removeClass('on')
+                $('.indi li').eq(n).addClass('on')
+                if(n==4){
+                    $('.indi li').eq(0).addClass('on')
+                }
+            })
+
+            $('.prev').click(function(){
+                n--
+                if(n == -1){ n<0
+                    n = 3
+                    $('.list').css({left:-400*4})
+                }
+                $('.list').stop().animate({left:-400*n})
+
+                $('.indi li').removeClass('on')
+                $('.indi li').eq(n).addClass('on')
+            })
+        })
+    </script>
+</body>
+</html>
