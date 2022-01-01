@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout3</title>
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap1">
+            parallax
+        </div>
+        <div class="wrap2">
+            <div class="wrap2_inner clear">
+                <div class="box1">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box2">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box3">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box4">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+            </div>
+            <button>wrap2</button>
+        </div>
+        
+        <div class="wrap3">
+            <div class="wrap3_inner clear">
+                <div class="box1">
+                    <span>box1</span>
+                </div>
+                <div class="box2">
+                    <span>box2</span>
+                </div>
+                <div class="box3">
+                    <span>box3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                var win_top = $(window).scrollTop() // 스크롤의 위치 구하기
+                var win_h = $(window).height()  // 브라우저의 높이
+                var wrap3_top = $('.wrap3').offset().top // wrap3의 위치
+
+                $('.wrap2_inner div').each(function(){
+                    var box_top = $(this).offset().top    // 현재 box의 위치 구하기
+
+                    if(win_top >= box_top - 300){
+                        $(this).addClass('on')
+                    }
+                })
+
+                if(win_top >= wrap3_top - 400){
+                    $('.wrap3_inner div').addClass('on')
+                }else if(win_top < wrap3_top - win_h){
+                    $('.wrap3_inner div').removeClass('on')
+                }
+
+                /*
+                if(win_top >= 400){
+                    $('.box1').addClass('on')
+                }
+                if(win_top >= 500){
+                    $('.box2').addClass('on')
+                }
+                if(win_top >= 600){
+                    $('.box3').addClass('on')
+                }
+                */
+            })
+        })
+    </script>
+</body>
+</html>

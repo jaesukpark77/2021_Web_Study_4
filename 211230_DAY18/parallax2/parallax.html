@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout3</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                var win_top = $(window).scrollTop()
+
+                $('.wrap2_inner div').each(function(){
+                    var box_top = $(this).offset().top
+
+                    if(win_top >= box_top -300){
+                        $(this).addClass('move')
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap1">
+            parallax
+        </div>
+        <div class="wrap2">
+            <div class="wrap2_inner clear">
+                <div class="box1">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box2">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box3">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box4">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+            </div>
+            <button>wrap2</button>
+        </div>
+        
+        <div class="wrap3">
+            <div class="wrap3_inner clear">
+                <div class="box1">
+                    <span>box1</span>
+                </div>
+                <div class="box2">
+                    <span>box2</span>
+                </div>
+                <div class="box3">
+                    <span>box3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
