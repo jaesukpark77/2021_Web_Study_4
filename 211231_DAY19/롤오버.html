@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롤오버</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol,li{list-style:none;}
+
+        .menu{
+            width:600px;
+            margin:0 auto;
+        }
+        .menu li {float:left;}
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="#"><img src="img/menu01_off.png" alt=""></a></li>
+        <li><a href="#"><img src="img/menu02_off.png" alt=""></a></li>
+        <li><a href="#"><img src="img/menu03_off.png" alt=""></a></li>
+    </ul>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('.menu li a').each(function(){
+                var src_off = $(this).find('img').attr('src')
+                var src_on = src_off.replace('_off', '_on')
+                $('<img>').attr('src', src_on) // 이미지 버벅거림 방지
+
+
+                $(this).mouseover(function(){
+                    $(this).find('img').attr('src', src_on)
+                })
+                $(this).mouseout(function(){
+                    $(this).find('img').attr('src', src_off)
+                })
+            })
+
+            /*
+            var str='제 이름은 홍길동입니다.'
+            var name = str.replace('홍길동', '조우정')
+            console.log(name)
+            */
+        })
+    </script>
+</body>
+</html>

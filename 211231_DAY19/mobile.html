@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile</title>
+    <style>
+        *{margin:0;padding:0;}
+        .box{
+            background-color:#ddd;
+            height:400px;
+            line-height:400px;
+            color:#333;
+            text-align:center;
+            position:relative;
+            overflow:hidden;
+        }
+        .txt{
+            background-color:#ddd;
+            height:80px;
+            line-height:80px;
+            text-align:center;
+            border:1px solid #333;
+            color:#333;
+        }
+
+        .img_wrap{
+            position:absolute;
+            left:0;
+            top:0;
+            width:400%; /* 100% * 자식의 갯수 */
+            height:400px;
+        }
+
+        .img_wrap div{
+            float:left;
+            width:25%;  /* 100% / 자식의 갯수 */ 
+            height:400px;
+            text-align:center;
+        }
+
+        .img_wrap .box1{background-color:#ddd;}
+        .img_wrap .box2{background-color:#aaa;}
+        .img_wrap .box3{background-color:#777;}
+        .img_wrap .box4{background-color:#555;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img_wrap">
+            <div class="box1">box1</div>
+            <div class="box2">box2</div>
+            <div class="box3">box3</div>
+            <div class="box4">box4</div>
+        </div>
+    </div>
+    <div class="txt">txt</div>
+</body>
+
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    $(function(){
+        var startX, moveX;
+        var gap = 50;
+
+        var touching = false;   // 터치를 하지 않는 중
+        var sleeping = false;   // 스와이프가 정지 중
+
+        $('.box').on('touchstart', function(e){
+            e.preventDefault;   // return false와 같다 -> a태그에서 링크로 가는거 방지
+            // console.log(e)
+            var touches = e.originalEvent.touches;
+            // console.log(touches)
+            var touch = touches[0]
+
+            startX = touch.pageX
+            // console.log(startX)
+
+            touching = true;    // 현재 터지중 입니다.
+            
+        })
+
+        $(document).on('touchmove', function(e){
+            var touches = e.originalEvent.touches;
+            var touch = touches[0]
+
+            moveX = touch.pageX;
+
+            if(!touching){ // 터치가 되어있지 않으면 실행 X
+                return 
+            }
+
+            if(sleeping){ // 스와이프 상태일때는 실행 X
+                return
+            }
+
+            move()
+            
+        })
+
+        $(document).on('touchend touchcancel', function(){
+            if(!touching){
+                return
+            }
+            
+            touching = false;
+            sleeping = false;
+
+        })
+
+        var n = 0
+        function move(){
+            if((startX - gap)> moveX){
+                $('.txt').text('왼쪽')
+                n++
+                if(n==4){
+                    n=3
+                }
+                $('.img_wrap').animate({left:n*(-100)+'%'})
+                sleeping=true;
+            }
+            if((startX + gap) <moveX){
+                $('.txt').text('오른쪽')
+                n--
+                if(n<0){
+                    n=0
+                }
+                $('.img_wrap').animate({left:n*(-100)+'%'})
+                sleeping=true;
+            }
+        }
+    })
+</script>
+</html>
